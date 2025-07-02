@@ -20,7 +20,7 @@ spring:
   application:
     security:
       jwt:
-        secret-key : yourkey
-        expiration: 86400000
+        secret-key : ff16ff67acb9367e89e158a3a4fa9812b3e11d43651fe2e3dcf1d1a9915a46b3
+        expiration: 7200000
         refresh-token:
-          expiration: 604800000
+          expiration: 7200000
