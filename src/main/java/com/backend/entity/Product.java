@@ -23,7 +23,6 @@ public class Product {
     private Long id;
     private String productName;
     private String productDescription;
-    private long productKilograms;
     private boolean active;
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)

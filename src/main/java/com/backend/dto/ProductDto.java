@@ -15,7 +15,6 @@ public class ProductDto {
     private Long id;
     private String productName;
     private String productDescription;
-    private long productKilograms;
     private boolean active;
     private Date createdDate;
     private Date updateDate;

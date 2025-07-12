@@ -52,8 +52,6 @@ public class ProductService {
 
         existingProduct.setProductName(productDto.getProductName());
         existingProduct.setProductDescription(productDto.getProductDescription());
-        existingProduct.setProductKilograms(productDto.getProductKilograms());
-        
         Product updatedProduct = productRepository.save(existingProduct);
         return Mapper.map(updatedProduct, ProductDto.class);
     }
