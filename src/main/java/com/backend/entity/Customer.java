@@ -11,6 +11,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -29,6 +30,9 @@ public class Customer {
     private String companyName;
     private String kimlikNo;
     private boolean active;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "productInOrOut_id", nullable = true)
+    private List<ProductInOrOut> productInOrOut;
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
     private Date CreatedDate;

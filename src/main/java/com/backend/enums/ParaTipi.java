@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public enum ParaTipi {
-    TURKLIRASI(1, "TürkLirası"),
-    DOLAR(2, "DOLAR"),
-    EURO(3, "EURO");
+    TURKLIRASI(0, "TürkLirası"),
+    DOLAR(1, "DOLAR"),
+    EURO(2, "EURO");
     private final int code;
     private final String value;
 }

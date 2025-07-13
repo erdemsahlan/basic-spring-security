@@ -24,6 +24,8 @@ public class Product {
     private String productName;
     private String productDescription;
     private boolean active;
+    @Column(nullable = true)
+    private long totalAmounth;
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
     private Date CreatedDate;

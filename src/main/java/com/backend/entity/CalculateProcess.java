@@ -11,7 +11,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import java.util.Date;
 
-@Entity
+//@Entity
 //@Audited
 @Data
 @Builder

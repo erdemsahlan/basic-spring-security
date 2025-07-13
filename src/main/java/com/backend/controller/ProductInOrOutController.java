@@ -30,6 +30,10 @@ public class ProductInOrOutController {
     public ResponseEntity<List<ProductInOrOutDto>> getAll() {
         return ResponseEntity.ok(productInOrOutService.getAll());
     }
+    @GetMapping("findByCustomerId/{customerId}")
+    public ResponseEntity<List<ProductInOrOutDto>> getByCustomerId(@PathVariable long customerId) {
+        return ResponseEntity.ok(productInOrOutService.getByCustomerId(customerId));
+    }
 
     @PutMapping("/{id}")
     public ResponseEntity<ProductInOrOutDto> update(

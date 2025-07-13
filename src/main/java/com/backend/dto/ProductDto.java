@@ -15,6 +15,7 @@ public class ProductDto {
     private Long id;
     private String productName;
     private String productDescription;
+    private long totalAmount;
     private boolean active;
     private Date createdDate;
     private Date updateDate;
