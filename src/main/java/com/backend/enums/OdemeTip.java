@@ -6,7 +6,8 @@ import lombok.RequiredArgsConstructor;
 public enum OdemeTip {
     CEK(0, "Çek"),
     NAKIT(1, "Nakit"),
-    KREDI_KARTI(2, "Kredi Kartı");
+    KREDI_KARTI(2, "Kredi Kartı"),
+    BORC(3, "Borç");
     private final int code;
     private final String value;
 }

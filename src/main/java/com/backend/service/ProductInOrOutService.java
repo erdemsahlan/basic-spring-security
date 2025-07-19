@@ -26,7 +26,7 @@ public class ProductInOrOutService {
     private final CustomerRepository customerRepository;
 
     @Transactional
-    public ProductInOrOutDto create(ProductInOrOutDto dto) {
+    public ProductSaveResponse create(ProductInOrOutDto dto) {
         Product product = productRepository.findById(dto.getProductId())
                 .orElseThrow(() -> new EntityNotFoundException("Ürün bulunamadı: " + dto.getProductId()));
 
@@ -36,19 +36,22 @@ public class ProductInOrOutService {
                     .orElseThrow(() -> new EntityNotFoundException("Müşteri bulunamadı: " + dto.getCustomerId()));
         }
 
-        ProductInOrOut productInOrOut = ProductInOrOut.builder()
-                .product(product)
-                .customer(customer)
-                .kilograms(dto.getKilograms())
-                .price(dto.getPrice())
-                .alisSatis(dto.getAlisSatis())
-                .paraTipi(dto.getParaTipi())
-                .odemeTip(dto.getOdemeTip())
-                .dovizKuru(dto.getDovizKuru())
-                .active(true)
-                .build();
-        ProductInOrOut saved = productInOrOutRepository.save(productInOrOut);
-        return convertToDto(saved);
+        ProductSaveResponse response = productCalculateLogic(customer, product, dto);
+        if (response.isSuccess()) {
+            ProductInOrOut productInOrOut = ProductInOrOut.builder()
+                    .product(product)
+                    .customer(customer)
+                    .kilograms(dto.getKilograms())
+                    .price(dto.getPrice())
+                    .alisSatis(dto.getAlisSatis())
+                    .paraTipi(dto.getParaTipi())
+                    .odemeTip(dto.getOdemeTip())
+                    .dovizKuru(dto.getDovizKuru())
+                    .active(true)
+                    .build();
+            ProductInOrOut saved = productInOrOutRepository.save(productInOrOut);
+        }
+        return response;
     }
 
     @Transactional

@@ -1,6 +1,7 @@
 package com.backend.controller;
 
 import com.backend.dto.ProductInOrOutDto;
+import com.backend.dto.ProductSaveResponse;
 import com.backend.service.ProductInOrOutService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,7 @@ public class ProductInOrOutController {
     private final ProductInOrOutService productInOrOutService;
 
     @PostMapping
-    public ResponseEntity<ProductInOrOutDto> create(@RequestBody ProductInOrOutDto dto) {
+    public ResponseEntity<ProductSaveResponse> create(@RequestBody ProductInOrOutDto dto) {
         return new ResponseEntity<>(productInOrOutService.create(dto), HttpStatus.CREATED);
     }
 
