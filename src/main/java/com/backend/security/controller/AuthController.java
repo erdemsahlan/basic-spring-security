@@ -1,5 +1,6 @@
 package com.backend.security.controller;
 
+import com.backend.security.dto.AuthRequest;
 import com.backend.security.dto.AuthResponse;
 import com.backend.security.dto.RegisterRequest;
 import com.backend.security.entity.UserEntity;
