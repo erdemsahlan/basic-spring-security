@@ -1,5 +1,10 @@
-package com.backend.security;
+package com.backend.security.controller;
 
+import com.backend.security.dto.AuthResponse;
+import com.backend.security.dto.RegisterRequest;
+import com.backend.security.entity.UserEntity;
+import com.backend.security.repository.UserRepository;
+import com.backend.security.service.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

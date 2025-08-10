@@ -1,5 +1,6 @@
-package com.backend.security;
+package com.backend.security.config;
 
+import com.backend.security.service.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;

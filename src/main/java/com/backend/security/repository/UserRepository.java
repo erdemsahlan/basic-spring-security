@@ -1,5 +1,6 @@
-package com.backend.security;
+package com.backend.security.repository;
 
+import com.backend.security.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

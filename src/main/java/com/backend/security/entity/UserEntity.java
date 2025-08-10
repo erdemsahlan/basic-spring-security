@@ -1,4 +1,4 @@
-package com.backend.security;
+package com.backend.security.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
