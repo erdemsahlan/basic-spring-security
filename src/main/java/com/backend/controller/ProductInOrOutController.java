@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/product-movements")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class ProductInOrOutController {
 
     private final ProductInOrOutService productInOrOutService;
