@@ -55,19 +55,9 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(authorize -> authorize
-                        // Auth endpoint'leri - herkes erişebilir
                         .requestMatchers("/api/auth/login", "/api/auth/register").permitAll()
-
-                        // Health check endpoint - Docker health check için
                         .requestMatchers("/actuator/health").permitAll()
-
-                        // Public endpoint'ler varsa
                         .requestMatchers("/api/public/**").permitAll()
-
-                        // Swagger/API docs (opsiyonel - development için)
-                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
-
-                        // Diğer tüm endpoint'ler authentication gerektirir
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session

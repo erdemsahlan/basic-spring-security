@@ -2,13 +2,18 @@ package com.backend.service;
 
 import com.backend.dto.CustomerDto;
 import com.backend.entity.Customer;
+import com.backend.exception.BaseException;
+import com.backend.exception.ErrorMessage;
+import com.backend.exception.MessageType;
 import com.backend.repository.CustomerRepository;
 import com.backend.config.Mapper;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.proxy.ProxyFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -27,8 +32,10 @@ public class CustomerService {
 
     @Transactional(readOnly = true)
     public CustomerDto getCustomerById(Long id) {
-        Customer customer = customerRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Customer not found with id: " + id));
+        Optional<Customer> customer = customerRepository.findById(id);
+        if (customer.isEmpty()) {
+            throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_FOUND,id.toString()));
+        }
         return Mapper.map(customer, CustomerDto.class);
     }
 
